@@ -80,7 +80,7 @@
 
 ---------
 <div align="center">
-  <h1 align="center">Editor y Propietario de la Bot</h1>
+  <h1 align="center">Editor y Propietario del Bot</h1>
 
 <a href="https://github.com/Giovanni-OFC"><img src="https://github.com/Giovanni-OFC.png" width="300" height="300" alt="おDaniel"/></a>
 
