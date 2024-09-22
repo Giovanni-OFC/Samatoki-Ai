@@ -68,7 +68,7 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
 if (!text) return conn.reply(m.chat, `🚩 Ingrese el nombre de la cancion de *Soundcloud.*`, m, rcanal)
 await m.react('🕓')
 try {
-let { data: results } = await axios.get(`https://apis-starlights-team.koyeb.app/starlight/soundcloud-search?text=${text}`, { headers: { 'Content-Type': 'application/json' } })
+let { data: results } = await axios.get(`https://apis-sport-team.koyeb.app/starlight/soundcloud-search?text=${text}`, { headers: { 'Content-Type': 'application/json' } })
 let randoms = results[Math.floor(Math.random() * results.length)]
 let { data: sm } = await axios.get(`https://apis-starlights-team.koyeb.app/starlight/soundcloud?url=${randoms.url}`, { headers: { 'Content-Type': 'application/json' }})
 let mpeg = await axios.get(sm.audio, { responseType: 'arraybuffer' })
