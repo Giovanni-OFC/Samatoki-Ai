@@ -7,7 +7,7 @@
         <a href="#"><img title="simple-whatsapp-bot" src="https://img.shields.io/badge/-SIMPLE--WHATSAPP--BOT-green?colorA=%23ff0000&colorB=%23017e40&style=for-the-badge"></a>
     </p>
     <p>
-        <a href="https://github.com/Giovanni-OFC"><img title="Author"    src="https://img.shields.io/badge/Author-おGiovanni-OFC-purple.svg?style=for-the-badge&logo=github"></a>
+        <a href="https://github.com/Giovanni-OFC"><img title="Author"    src="https://img.shields.io/badge/Author-Giovanni-OFC-purple.svg?style=for-the-badge&logo=github"></a>
     </p>
     <p>
         <a href="https://github.com/Giovanni-OFC"><img title="Followers" src="https://img.shields.io/github/followers/Giovanni-OFC?color=blue&style=flat-square"></a>
