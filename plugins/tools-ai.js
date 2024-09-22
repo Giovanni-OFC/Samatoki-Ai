@@ -1,4 +1,4 @@
-import Starlights from '@StarlightsTeam/Scraper'
+import Starlights from '@giovanni_.ofc/Scraper'
 import fetch from 'node-fetch'
 
 let handler = async (m, { conn, text, usedPrefix, command }) => {
