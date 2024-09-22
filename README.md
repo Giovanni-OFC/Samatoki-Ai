@@ -70,7 +70,7 @@
 
 ## Repo Stats 🔭
 
-![github card](https://github-readme-stats.vercel.app/api/pin/?username=𝚂𝙿𝙾𝚁𝚃 𝚃𝙴𝙰𝙼&repo=Samatoki-Ai&theme=chartreuse-dark)
+![github card](https://github-readme-stats.vercel.app/api/pin/?username=𝚂𝙿𝙾𝚁𝚃𝚃𝙴𝙰𝙼&repo=Samatoki-Ai&theme=chartreuse-dark)
 
 ---------
 
