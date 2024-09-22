@@ -33,9 +33,9 @@ global.packname = ``
 global.author = '{\n "bot": {\n   "name": "Ai Hoshino",\n     "author": "Giovanni-OFC",\n   "status_bot": "active"\n }\n}'
 global.wait = '🐢 *Aɢᴜᴀʀᴅᴇ ᴜɴ ᴍᴏᴍᴇɴᴛᴏ, sᴏʏ ʟᴇɴᴛᴀ... ฅ^•ﻌ•^ฅ*'
 global.botname = '✯ Samatoki Ai - MD ✰'
-global.textbot = `Powered By Starlights Team`
+global.textbot = `Powered By Sport Team`
 global.listo = '*Aqui tiene ฅ^•ﻌ•^ฅ*'
-global.namechannel = '【 ✯ Starlights Team - Oficial Chanel ✰ 】'
+global.namechannel = '【 ✯ Sort Team - Oficial Chanel ✰ 】'
 
 //*─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─*
 
