@@ -83,6 +83,6 @@
 <div align="center">
   <h1 align="center">Editor y Propietario del Bot</h1>
 
-<a href="https://github.com/Giovanni-OFC"><img src="https://github.com/Giovanni-OFC.png" width="300" height="300" alt="おDaniel"/></a>
+<a href="https://github.com/Giovanni-OFC"><img src="https://github.com/Giovanni-OFC.png" width="300" height="300" alt="おGiovanni"/></a>
 
 `© Ai Samatoki/ SPORT Team _ By おGIOVANNI-OFC`
