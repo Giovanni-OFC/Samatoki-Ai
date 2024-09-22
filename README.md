@@ -11,10 +11,10 @@
     </p>
     <p>
         <a href="https://github.com/Giovanni-OFC"><img title="Followers" src="https://img.shields.io/github/followers/Giovanni-OFC?color=blue&style=flat-square"></a>
-        <a href="https://github.com/StarlightsTeam/Ai-Hoshino/stargazers/"><img title="Stars" src="https://img.shields.io/github/stars/StarlightsTeam/Ai-Hoshino?color=red&style=flat-square"></a>
-        <a href="https://github.com/StarlightsTeam/Ai-Hoshino/network/members"><img title="Forks" src="http://img.shields.io/github/forks/StarlightsTeam/Ai-Hoshino?color=red&style=flat-square"></a>
+        <a href="https://github.com/StarlightsTeam/Samatoki-Ai/stargazers/"><img title="Stars" src="https://img.shields.io/github/stars/Giovanni-OFC/Samatoki-Ai?color=red&style=flat-square"></a>
+        <a href="https://github.com/Giovanni-OFC/Samatoki-Ai/network/members"><img title="Forks" src="http://img.shields.io/github/forks/Giovanni-OFC/Samatoki-Ai?color=red&style=flat-square"></a>
         <a href="#"><img src="https://img.shields.io/badge/MANTENIMIENTO-SI-blue.svg"</a>
-        <img src="https://img.shields.io/github/repo-size/StarlightsTeam/Ai-Hoshino" /> <br>
+        <img src="https://img.shields.io/github/repo-size/Giovanni-OFC/Samatoki-Ai" /> <br>
    </p>
    <p>
 </h1>
