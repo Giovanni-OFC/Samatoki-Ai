@@ -6,11 +6,11 @@ if (!text) return conn.reply(m.chat, `🚩 Ingrese el nombre de la cancion de *S
 
 await m.react('🕒');
 try {
-let api = await fetch(`https://apis-starlights-team.koyeb.app/starlight/soundcloud-search?text=${encodeURIComponent(text)}`);
+let api = await fetch(`https://apis-sport-team.koyeb.app/starlight/soundcloud-search?text=${encodeURIComponent(text)}`);
 let json = await api.json();
 let { url } = json[0];
 
-let api2 = await fetch(`https://apis-starlights-team.koyeb.app/starlight/soundcloud?url=${url}`);
+let api2 = await fetch(`https://apis-sport-team.koyeb.app/starlight/soundcloud?url=${url}`);
 let json2 = await api2.json();
         
 let { link: dl_url, quality, image } = json2;
