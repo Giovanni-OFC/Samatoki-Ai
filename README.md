@@ -76,8 +76,8 @@
 
 ## <img src="https://raw.githubusercontent.com/vilcajoal/vilcajoal/master/assets/octocat-anime.gif" alt="Github" width="44" height="44"> Github Stats
 
-![github stats](https://github-readme-stats.vercel.app/api?username=StarlightsTeam&show_icons=true&theme=chartreuse-dark)
-![github toplang](https://github-readme-stats.vercel.app/api/top-langs/?username=StarlightsTeam&layout=compact&theme=chartreuse-dark)
+![github stats](https://github-readme-stats.vercel.app/api?username=Giovanni-OFC&show_icons=true&theme=chartreuse-dark)
+![github toplang](https://github-readme-stats.vercel.app/api/top-langs/?username=Giovanni-OFC&layout=compact&theme=chartreuse-dark)
 
 ---------
 
@@ -88,6 +88,6 @@
 <div align="center">
   <h1 align="center">Editor y Propietario de la Bot</h1>
 
-<a href="https://github.com/SumiFX"><img src="https://tinyurl.com/2ys6a27z" width="300" height="300" alt="おDaniel"/></a>
+<a href="https://github.com/Giovanni-OFC"><img src="https://tinyurl.com/2ys6a27z" width="300" height="300" alt="Giovanni-OFC/></a>
 
-`© Sumi Sakurasawa - MD / StarlightsTeam - By おDaniel
+`© Samatoki - Ai / StarlightsTeam - By Giovanni-OFC
