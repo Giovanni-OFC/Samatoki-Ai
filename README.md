@@ -70,19 +70,24 @@
 
 ## Repo Stats 🔭
 
-![github card](https://github-readme-stats.vercel.app/api/pin/?username=𝚂𝙿𝙾𝚁𝚃𝚃𝙴𝙰𝙼&repo=Samatoki-Ai&theme=chartreuse-dark)
+![github card](https://github-readme-stats.vercel.app/api/pin/?username=StarlightsTeam&repo=Sumi-Sakurasawa&theme=chartreuse-dark)
 
 ---------
 
 ## <img src="https://raw.githubusercontent.com/vilcajoal/vilcajoal/master/assets/octocat-anime.gif" alt="Github" width="44" height="44"> Github Stats
 
-![github stats](https://github-readme-stats.vercel.app/api?username=Samatoki-Ai&show_icons=true&theme=chartreuse-dark)
-![github toplang](https://github-readme-stats.vercel.app/api/top-langs/?username=Samatoki-Ai&layout=compact&theme=chartreuse-dark)
+![github stats](https://github-readme-stats.vercel.app/api?username=StarlightsTeam&show_icons=true&theme=chartreuse-dark)
+![github toplang](https://github-readme-stats.vercel.app/api/top-langs/?username=StarlightsTeam&layout=compact&theme=chartreuse-dark)
+
+---------
+
+## Créditos 
+<a href="https://github.com/BrunoSobrino"><img src="https://github.com/BrunoSobrino.png" width="100" height="100" alt="BrunoSobrino"/></a>
 
 ---------
 <div align="center">
-  <h1 align="center">Editor y Propietario del Bot</h1>
+  <h1 align="center">Editor y Propietario de la Bot</h1>
 
-<a href="https://github.com/Giovanni-OFC"><img src="https://github.com/Giovanni-OFC.png" width="300" height="300" alt="おGiovanni"/></a>
+<a href="https://github.com/SumiFX"><img src="https://tinyurl.com/2ys6a27z" width="300" height="300" alt="おDaniel"/></a>
 
-`© Ai Samatoki/ SPORT Team _ By おGIOVANNI-OFC`
+`© Sumi Sakurasawa - MD / StarlightsTeam - By おDaniel
