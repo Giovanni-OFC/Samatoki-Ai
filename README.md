@@ -1,4 +1,4 @@
-<h1 align="center">‧ 【 ✯ Ai Samatoki ✰ 】 ‧
+<h1 align="center">‧ 【 ✯ Samatoki Ai ✰ 】 ‧
 </p>
 <p>
         <img src= "https://i.ibb.co/YbF4wNP/file.jpg">
