@@ -70,7 +70,7 @@
 
 ## Repo Stats 🔭
 
-![github card](https://github-readme-stats.vercel.app/api/pin/?username=StarlightsTeam&repo=Sumi-Sakurasawa&theme=chartreuse-dark)
+![github card](https://github-readme-stats.vercel.app/api/pin/?username=Giovanni-OFC&repo=Samatoki-Ai&theme=chartreuse-dark)
 
 ---------
 
