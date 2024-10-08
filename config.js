@@ -30,7 +30,7 @@ global.prems = ['51902855352','50242073893']
 //*─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─*
 
 global.packname = ``
-global.author = '{\n "bot": {\n   "name": "Ai Hoshino",\n     "author": "Giovanni-OFC",\n   "status_bot": "active"\n }\n}'
+global.author = '{\n "bot": {\n   "name": "Samatoki Ai",\n     "author": "Giovanni-OFC",\n   "status_bot": "active"\n }\n}'
 global.wait = '🐢 *Aɢᴜᴀʀᴅᴇ ᴜɴ ᴍᴏᴍᴇɴᴛᴏ, sᴏʏ ʟᴇɴᴛᴀ... ฅ^•ﻌ•^ฅ*'
 global.botname = '♆ Samatoki Ai - MD ♆'
 global.textbot = `Powered By S𝙿𝙾𝚁𝚃 T𝙴𝙰𝙼`
