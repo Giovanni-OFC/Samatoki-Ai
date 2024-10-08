@@ -9,7 +9,7 @@
 		"plugins": "plugins"
 	},
 	"scripts": {
-		"start": "node starlights.js",
+		"start": "node samatoki.js",
 		"test": "node test.js",
 		"test2": "nodemon index.js"
 	},
@@ -25,23 +25,23 @@
 		"MD",
 		"baileys-md"
 	],
-	"homepage": "https://github.com/StarlightsTeam/Ai-Hoshino",
+	"homepage": "https://github.com/Giovanni-OFC/Samatoki-Ai",
 	"author": {
-		"name": "おDanịel.xyz⁩"
+		"name": "Giovanni-OFC"
 	},
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/StarlightsTeam/Ai-Hoshino.git"
+		"url": "git+https://github.com/Giovanni-OFC/Samatoki-Ai.git"
 	},
 	"bugs": {
-		"url": "https://github.com/StarlightsTeam/Ai-Hoshino/issues"
+		"url": "https://github.com/Giovanni-OFC/Samatoki-Ai/issues"
 	},
 	"license": "GPL-3.0-or-later",
 	"dependencies": {
 		"@bochilteam/scraper": "^4.2.4",
 		"@whiskeysockets/baileys": "*",
 		"@ibaraki-douji/pixivts": "^2.4.1",
-		"@StarlightsTeam/Scraper": "github:StarlightsTeam/StarlightsTeam-Scraper",
+		"Giovanni-OFC/Scraper": "github:Giovanni-OFC/Giovanni-OFC-Scraper",
 		"awesome-phonenumber": "*",
 		"fluid-spotify.js": "*",
 		"axios": "*",
@@ -49,7 +49,7 @@
 		"api-dylux": "*",
 		"cfonts": "^3.2.0",
 		"chalk": "^5.3.0",
-		"cheerio": "github:AikerDev/cheeiro",
+		"cheerio": "github:Giovanni-OFC/cheeiro",
 		"acrcloud": "*",
 		"emoji-api": "*",
 		"file-type": "*",
