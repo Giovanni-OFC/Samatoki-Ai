@@ -2,7 +2,7 @@
 	"name": "Ai Hoshino",
 	"version": "6.0.0",
 	"description": "Simple WhatsApp Bot Multi Device",
-	"main": "starlights.js",
+	"main": "samatoki.js",
 	"type": "module",
 	"directories": {
 		"lib": "lib",
