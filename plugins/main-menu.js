@@ -1,62 +1,82 @@
-//import db from '../lib/database.js'
 import { promises } from 'fs'
 import { join } from 'path'
 import fetch from 'node-fetch'
 import { xpRange } from '../lib/levelling.js'
-//import { plugins } from '../lib/plugins.js'
-let tags = {
-  'main': 'ACERCA DE 🍯',
-  'bebot': 'SUB BOTS 🤖',
-  'game': 'JUEGOS 🎮',
-  'econ': 'NIVEL & ECONOMIA 🐍',
-  'rg': 'REGISTRO 📈',
-  'gc': 'POPULAR 🅿️',
-  'sticker': 'STICKER 🍁',
-  'img': 'IMAGEN 🌱',
-  'maker': 'MAKER ✍️',
-  'prem': 'PREMIUM 🎫',
-  'group': 'GRUPO 👥',
-  'nable': 'ON/OFF OPCIONES 🟢', 
-  'nime': 'ANIME 🌸',
-  'rnime': 'ANIME REACCION 🌸',
-  'dl': 'DESCARGAS 📥',
-  'tools': 'TOOLS 🧸',
-  'fun': 'FUN 🔮',
-  'cmd': 'DATABASE 💻',
-  'nsfw': 'NSFW 🔞',
-  'ansfw': 'NSFW ANIME 🔞', 
-  'owner': 'OWNER 🫅', 
-  'advanced': 'AVANZADO 🔥',
-}
-const defaultMenu = {
-  before: `
 
-🌵 𝗥𝗢𝗖𝗞𝗟𝗘𝗘 𝗕𝗢𝗧 🌵
-╰˚₊·—̳͟͞͞🍯𝗛𝗼𝗹𝗮 %name
-    ╰┈➤ ⌛𝙏𝙞𝙚𝙢𝙥𝙤 𝘼𝙘𝙩: %muptime %sbot
-    ╰┈➤ 📆 𝙁𝙚𝙘𝙝𝙖: %date
-    ╰┈➤ 👤𝙐𝙨𝙪𝙖𝙧𝙞𝙤𝙨: %rtotalreg
-    ╰┈➤ 👩🏻‍💻𝘾𝙧𝙚𝙖𝙙𝙤𝙧/𝙖: 
-    ╰┈➤ wa.me/+56986511915
+let tags = {
+  'main': '𝗜𝗡𝗙𝗢×𝗕𝗢𝗧',
+  'buscador': '𝗕𝗨𝗦𝗖𝗔𝗗𝗢𝗥𝗘𝗦',
+  'fun': '𝗝𝗨𝗘𝗚𝗢𝗦',
+  'jadibot': '𝗦𝗘𝗥𝗕𝗢𝗧 / 𝗖𝗢𝗗𝗘',
+  'rpg': '×𝗥×𝗣×𝗚×',
+  'rg': '𝗥𝗘𝗚𝗜𝗦𝗧𝗥𝗢',
+  'xp': '×𝗘×𝗫×𝗣×',
+  'sticker': '𝗦𝗧𝗜𝗖𝗞𝗘𝗥𝗘𝗦',
+  'anime': '𝗔𝗡𝗜𝗠𝗘𝗦',
+  'database': '𝗗𝗔𝗧𝗔𝗕𝗔𝗗𝗘',
+  'fix': '𝗙𝗜𝗫𝗠𝗘𝗡𝗦𝗔𝗝𝗘',
+  'grupo': '𝗚𝗥𝗨𝗣𝗣𝗦',
+  'nable': '𝗢𝗙𝗙 / 𝗢𝗡', 
+  'descargas': '𝗗𝗘𝗦𝗖𝗔𝗥𝗚𝗔𝗦',
+  'youtube': '𝗬𝗢𝗨𝗧𝗨𝗕𝗘',
+  'tools': '𝗛𝗘𝗥𝗥𝗔𝗠𝗜𝗘𝗡𝗧𝗔𝗦',
+  'info': '𝗜𝗡𝗙𝗢𝗥𝗠𝗔𝗖𝗜𝗢𝗡',
+  'nsfw': '𝗡𝗦𝗙𝗪', 
+  'owner': '𝗖𝗥𝗘𝗔𝗗𝗢𝗥', 
+  'mods': '𝗦𝗧𝗔𝗙𝗙',
+  'audio': '𝗔𝗨𝗗𝗜𝗢𝗦', 
+  'ai': '×𝗔×𝗜×',
+  'transformador': '𝗖𝗢𝗡𝗩𝗘𝗥𝗧𝗜𝗗𝗢𝗥𝗘𝗦',
+}
+
+const defaultMenu = {
+  before: `.........․⁀⸱⁀⸱︵⸌⸃૰⳹․KING․⳼૰⸂⸍︵⸱⁀⸱⁀․........
+𔓕꯭  ꯭ 𓏲꯭֟፝੭ ꨄ 𝐃𝐑𝐀𝐊𝐎 - 𝐊𝐈𝐍𝐆 ꨄ 𓏲꯭֟፝੭ ꯭  ꯭𔓕
+ՏIᘜᑌᗴᑎOՏ https://whatsapp.com/channel/0029VagYdbFEwEk5htUejk0t
+▬͞▭͞▬͞▭͞▬͞▭͞▬͞▭͞▬͞▭͞▬͞▭͞▬͞▭͞▬͞▭
+
+“ 𝚑𝚘𝚕𝚊 𝚌𝚘𝚖𝚘 𝚎𝚜𝚝𝚊𝚜 𝚎𝚕 𝚍𝚒𝚊 𝚍𝚎 𝚑𝚘𝚢 *%name* 𝚂𝚘𝚢 *𝐃𝐫𝐚𝐤𝐨-𝐁𝐨𝐭*, %greeting ”
+
+.    ╭─ׅ─ׅ┈ ─๋︩︪─☪︎︎︎̸⃘̸࣭ٜ࣪࣪࣪۬🌹፝⃟ᰯ🌹◌⃘࣭ٜ࣪࣪࣪۬☪︎︎︎︎̸─ׅ─ׅ┈ ─๋︩︪─╮
+╭╼🪄⬪࣪ꥈ𑁍⃪࣭۪ٜ݊݊݊݊݊໑ٜ࣪ 𝗠𝗘𝗡𝗨-𝗗𝗥𝗔𝗞𝗢໑⃪࣭۪ٜ݊݊݊݊𑁍ꥈ࣪⬪🪄
+┃֪࣪  ╰─ׅ─ׅ┈ ─๋︩︪─☪︎︎︎̸⃘̸࣭ٜ࣪࣪࣪۬🌹፝⃟ᰯ🌹◌⃘࣭ٜ࣪࣪࣪۬☪︎︎︎︎̸─ׅ─ׅ┈𝐊𝐈𝐍𝐆
+├ׁ̟̇✰👺 *ᘜᖇᑌᑭO : https://chat.whatsapp.com/Jjs2l4X3LdP7RHr06WsasW
+├ׁ̟̇✰👑 *ᑕᖇᗴᗩᗪOᖇ:* King
+├ׁ̟̇✰🎮 *ᗰOᗪO:* Público
+├ׁ̟̇✰🌠 *ᗷᗩIᒪᗴYՏ:* Multi Device
+├ׁ̟̇✰⏱️ *ᗩᑕTIᐯᗩᗪO:* %muptime
+├ׁ̟̇✰👤 *ᑌՏᑌᗩᖇIOՏ:* %totalreg
+╚▭࣪▬ִ▭࣪▬ִ▭࣪▬ִ▭࣪▬ִ▭࣪▬ִ▭࣪▬▭╝
+
+%readmore
+.    ╭─ׅ─ׅ┈ ─๋︩︪─☪︎︎︎̸⃘̸࣭ٜ࣪࣪࣪۬🌹፝⃟ᰯ🌹◌⃘࣭ٜ࣪࣪࣪۬☪︎︎︎︎̸─ׅ─ׅ┈ ─๋︩︪─╮
+╭╼🪄⬪࣪ꥈ𑁍⃪࣭۪ٜ݊݊݊݊݊໑ٜ࣪ 🅄🅂🅄🄰🅁🄸🄾໑⃪࣭۪ٜ݊݊݊݊𑁍ꥈ࣪⬪🪄
+┃֪࣪  ╰─ׅ─ׅ┈ ─๋︩︪─☪︎︎︎̸⃘̸࣭ٜ࣪࣪࣪۬🌹፝⃟ᰯ🌹◌⃘࣭ٜ࣪࣪࣪۬☪︎︎︎︎̸─ׅ─ׅ┈ ─๋︩︪─╯
+├ׁ̟̇✰🗣️ *ᑕᒪIᗴᑎTᗴ:* %name
+├ׁ̟̇✰✨ *᙭xᑭ:* %exp
+├ׁ̟̇✰⭐ *ᗴՏTᖇᗴᒪᒪᗩՏ:* %estrellas
+├ׁ̟̇✰🆙 *ᑎIᐯᗴᒪ:* %level
+├ׁ̟̇✰⚔️ *ᖇᗩᑎᘜO:* %role
+╚▭࣪▬ִ▭࣪▬ִ▭࣪▬ִ▭࣪▬ִ▭࣪▬ִ▭࣪▬▭╝
+
+%readmore
+*─ׄ─ׄ─⭒─ׄ─ׅ─ׄ⭒─ׄ─ׄ─⭒─ׄ─ׄ─⭒─ׄ─ׅ─*
+
+\t*𝗟𝗜𝗦𝗧𝗔𝗦 𝗗𝗘 𝗖𝗢𝗠𝗔𝗡𝗗𝗢𝗦᯾* 
 `.trimStart(),
-  header: '╭───────────────────\n│≼·˚ *%category*\n│≼·˚ ╭────────────',
-  body: '│≼·˚ ╭┈┈• _*%cmd*_ %isdiamond %isPremium',
-  footer: '│≼·˚ ╰────────────\n╰────────────\n',
-  after: `
-`,
+      header: '.    ╭─ׅ─ׅ┈ ─๋︩︪─☪︎︎︎̸⃘̸࣭ٜ࣪࣪࣪۬🌹፝⃟ᰯ🌹◌⃘࣭ٜ࣪࣪࣪۬☪︎︎︎︎̸─ׅ─ׅ┈ ─๋︩︪─╮\n╭╼☁️⬪࣪ꥈ𑁍⃪࣭۪ٜ݊݊݊݊݊໑ٜ࣪ %category ໑⃪࣭۪ٜ݊݊݊݊𑁍ꥈ࣪⬪☁️\n┃֪࣪  ╰─ׅ─ׅ┈ ─๋︩︪─☪︎︎︎̸⃘̸࣭ٜ࣪࣪࣪۬🌹፝⃟ᰯ🌹◌⃘࣭ٜ࣪࣪࣪۬☪︎︎︎︎̸─ׅ─ׅ┈ ─๋︩︪─╯',
+  body: '├ׁ̟̇✰ %cmd\n',
+  footer: '╚▭࣪▬ִ▭࣪▬ִ▭࣪▬ִ▭࣪▬ִ▭࣪▬ִ▭࣪▬▭╝\n',
+  after: `> ${dev}`,
 }
 let handler = async (m, { conn, usedPrefix: _p, __dirname }) => {
   try {
     let _package = JSON.parse(await promises.readFile(join(__dirname, '../package.json')).catch(_ => ({}))) || {}
-    let { exp, diamond, level, role } = global.db.data.users[m.sender]
+    let { exp, estrellas, level, role } = global.db.data.users[m.sender]
     let { min, xp, max } = xpRange(level, global.multiplier)
     let name = await conn.getName(m.sender)
     let d = new Date(new Date + 3600000)
     let locale = 'es'
-    // d.getTimeZoneOffset()
-    // Offset -420 is 18.00
-    // Offset    0 is  0.00
-    // Offset  420 is  7.00
     let weton = ['Pahing', 'Pon', 'Wage', 'Kliwon', 'Legi'][Math.floor(d / 84600000) % 5]
     let week = d.toLocaleDateString(locale, { weekday: 'long' })
     let date = d.toLocaleDateString(locale, {
@@ -92,7 +112,7 @@ let handler = async (m, { conn, usedPrefix: _p, __dirname }) => {
         help: Array.isArray(plugin.tags) ? plugin.help : [plugin.help],
         tags: Array.isArray(plugin.tags) ? plugin.tags : [plugin.tags],
         prefix: 'customPrefix' in plugin,
-        diamond: plugin.diamond,
+        estrellas: plugin.estrellas,
         premium: plugin.premium,
         enabled: !plugin.disabled,
       }
@@ -106,7 +126,7 @@ let handler = async (m, { conn, usedPrefix: _p, __dirname }) => {
     let header = conn.menu.header || defaultMenu.header
     let body = conn.menu.body || defaultMenu.body
     let footer = conn.menu.footer || defaultMenu.footer
-    let after = conn.menu.after || (conn.user.jid == conn.user.jid ? '' : `⭐ Powered by FG98 https://wa.me/${conn.user.jid.split`@`[0]}`) + defaultMenu.after
+    let after = conn.menu.after || (conn.user.jid == conn.user.jid ? '' : `Powered by https://wa.me/${conn.user.jid.split`@`[0]}`) + defaultMenu.after
     let _text = [
       before,
       ...Object.keys(tags).map(tag => {
@@ -125,43 +145,81 @@ let handler = async (m, { conn, usedPrefix: _p, __dirname }) => {
       after
     ].join('\n')
     let text = typeof conn.menu == 'string' ? conn.menu : typeof conn.menu == 'object' ? _text : ''
-    let replace = {
-      '%': '%',
-      p: _p, uptime, muptime,
-      me: conn.getName(conn.user.jid),
-      sbot: (conn.user.jid == global.conn.user.jid ? '' : `\n▢ ✨ *Sub-Bot de:*\nwa.me/${global.conn.user.jid.split`@`[0]}`), 
-      npmname: _package.name,
-      npmdesc: _package.description,
-      version: _package.version,
-      exp: exp - min,
-      maxexp: xp,
-      totalexp: exp,
-      xp4levelup: max - exp,
-      github: _package.homepage ? _package.homepage.url || _package.homepage : '[unknown github url]',
-      level, diamond, name, weton, week, date, dateIslamic, time, totalreg, rtotalreg, role,
-      readmore: readMore
-    }
-    text = text.replace(new RegExp(`%(${Object.keys(replace).sort((a, b) => b.length - a.length).join`|`})`, 'g'), (_, name) => '' + replace[name])
+let replace = {
+'%': '%',
+p: _p, uptime, muptime,
+me: conn.getName(conn.user.jid),
+taguser: '@' + m.sender.split("@s.whatsapp.net")[0],
+npmname: _package.name,
+npmdesc: _package.description,
+version: _package.version,
+exp: exp - min,
+maxexp: xp,
+botofc: (conn.user.jid == global.conn.user.jid ? '🚩 𝙴𝚂𝚃𝙴 𝙴𝚂 𝙴𝙻 𝙱𝙾𝚃 𝙾𝙵𝙲' : `🚩 𝚂𝚄𝙱-𝙱𝙾𝚃 𝙳𝙴: Wa.me/${global.conn.user.jid.split`@`[0]}`), 
+totalexp: exp,
+xp4levelup: max - exp,
+github: _package.homepage ? _package.homepage.url || _package.homepage : '[unknown github url]',
+greeting, level, estrellas, name, weton, week, date, dateIslamic, time, totalreg, rtotalreg, role,
+readmore: readMore
+}
+text = text.replace(new RegExp(`%(${Object.keys(replace).sort((a, b) => b.length - a.length).join`|`})`, 'g'), (_, name) => '' + replace[name])
 
-    let pp = 'https://f.uguu.se/EDsCBhpV.jpg'
+const who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
 
-    /*conn.sendButton(m.chat, text.trim(), `▢ DyLux  ┃ ᴮᴼᵀ\n${mssg.ig}`, pp, [
-      ['ꨄ︎ Apoyar', `${_p}donate`],
-      ['⏍ Info', `${_p}botinfo`],
-      ['⌬ Grupos', `${_p}gpdylux`]
-    ], m, rpl)*/
-    conn.sendFile(m.chat, pp, 'menu.jpg', text.trim(), m, null, rcanal)
-    m.react('🔥') 
+const pp = await conn.profilePictureUrl(who, 'image').catch(_ => 'https://telegra.ph/file/327f6ad853cb4f405aa80.jpg')
+
+  let category = "video"
+  const db = './media/database/db.json'
+  const db_ = JSON.parse(fs.readFileSync(db))
+  const random = Math.floor(Math.random() * db_.links[category].length)
+  const rlink = db_.links[category][random]
+  global.vid = rlink
+  const response = await fetch(vid)
+  const gif = await response.buffer()
+ // const img = imagen1
+
+/*await conn.reply(m.chat, '╭ׅׄ̇─ׅ̻ׄ╮۪̇߭︹ׅ̟ׄ̇︹ׅ۪ׄ̇߭︹ׅ̟ׄ̇⊹۪̇߭︹ׅ̟ׄ̇︹ׅ۪ׄ̇߭︹ׅ̟ׄ̇⊹۪̇߭︹ׅ̟ׄ̇︹ׅ۪ׄ̇߭︹ׅ̟ׄ̇⊹*\n├ ⚘݄𖠵⃕⁖𖥔.Ƈᴀʀɢᴀɴᴅᴏ,  ꪶꪾ❍̵̤̂̂ꫂ\n├Ąɢᴜᴀʀᴅᴇ ᴜɴ ᴍᴏᴍᴇɴᴛᴏ❞\n╰ׁ̻─ׅׄ─۪۬─۟─۪─۟─۪۬─۟─۪─۟─۪۬─۟─۪─۟┄۪۬┄۟┄۪┈۟┈۪', m, { contextInfo:{ forwardingScore: 2024, isForwarded: true, externalAdReply: {title: namechannel, body: '𝐃𝐞𝐯 𝐖𝐨𝐫𝐝 𝐓𝐞𝐚𝐦 𝐎𝐟𝐢𝐜𝐢𝐚𝐥', sourceUrl: channel, thumbnail: icons }}})*/
+
+// await conn.reply(m.chat, '🍟 Enviando el menú.....', m, rcanal)
+
+await m.react('🪄') 
+
+//await conn.sendFile(m.chat, imagen1, 'yaemori.jpg', text.trim(), fkontak, null, rcanal)
+
+await conn.sendMessage(
+  m.chat,
+  { video: { url: vid }, caption: text.trim(),
+  contextInfo: {
+    mentionedJid: [m.sender],
+    isForwarded: true,
+    forwardedNewsletterMessageInfo: {
+      newsletterJid: '120363323286489957@newsletter',
+      newsletterName: '⏤͟͞𝐃𝐫𝐚𝐤𝐨-𝐁𝐨𝐭๛𝐎𝐟𝐜࿐/✎⋰∴⋱𝐁𝐲 𝐊𝐢𝐧𝐠',
+      serverMessageId: -1,
+    },
+    forwardingScore: 999,
+    externalAdReply: {
+      title: '⏤͟͞ू𝐃𝐑𝐀𝐊𝐎-𝐁𝐎𝐓⋰⋰𝐁𝐲 𝐊𝐈𝐍𝐆✍︎࿐',
+      body: dev,
+      thumbnailUrl: icono,
+      sourceUrl: redes,
+      mediaType: 1,
+      renderLargerThumbnail: false,
+    },
+  },
+
+  gifPlayback: true, gifAttribution: 0 },
+  { quoted: fkontak })
 
   } catch (e) {
-    conn.reply(m.chat, '❎ Lo sentimos, el menú tiene un error', m)
+    conn.reply(m.chat, '🔵 Lo sentimos, el menú tiene un error', m, rcanal, )
     throw e
   }
 }
-//handler.help = ['help']
-//handler.tags = ['main']
-handler.command = ['allmenu','menúall','menu'] 
-handler.register = false
+handler.help = ['menu']
+handler.tags = ['main']
+handler.command = ['menu', 'm', 'ayuda', 'allmenú', 'help', 'menucompleto'] 
+handler.register = true
 
 export default handler
 
@@ -169,11 +227,10 @@ const more = String.fromCharCode(8206)
 const readMore = more.repeat(4001)
 
 function clockString(ms) {
-  let d = isNaN(ms) ? '--' : Math.floor(ms / 86400000)
-  let h = isNaN(ms) ? '--' : Math.floor(ms / 3600000) % 24
+  let h = isNaN(ms) ? '--' : Math.floor(ms / 3600000)
   let m = isNaN(ms) ? '--' : Math.floor(ms / 60000) % 60
   let s = isNaN(ms) ? '--' : Math.floor(ms / 1000) % 60
-  return [d, 'd ', h, 'h ', m, 'm '].map(v => v.toString().padStart(2, 0)).join('')
+  return [h, m, s].map(v => v.toString().padStart(2, 0)).join(':')
 }
 
   var ase = new Date();
