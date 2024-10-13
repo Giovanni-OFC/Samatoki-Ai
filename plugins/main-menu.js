@@ -30,7 +30,7 @@ let tags = {
 }
 
 const defaultMenu = {
-  before: `.........․⁀⸱⁀⸱︵⸌⸃૰⳹․KING․⳼૰⸂⸍︵⸱⁀⸱⁀․........
+  before: `.........․⁀⸱⁀⸱︵⸌⸃૰⳹․KING․⳼૰⸂⸍︵⸱⁀⸱⁀․........
 𔓕꯭  ꯭ 𓏲꯭֟፝੭ ꨄ 𝐃𝐑𝐀𝐊𝐎 - 𝐊𝐈𝐍𝐆 ꨄ 𓏲꯭֟፝੭ ꯭  ꯭𔓕
 ՏIᘜᑌᗴᑎOՏ https://whatsapp.com/channel/0029VagYdbFEwEk5htUejk0t
 ▬͞▭͞▬͞▭͞▬͞▭͞▬͞▭͞▬͞▭͞▬͞▭͞▬͞▭͞▬͞▭
