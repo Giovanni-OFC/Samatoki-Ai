@@ -2,7 +2,6 @@ import { promises } from 'fs'
 import { join } from 'path'
 import fetch from 'node-fetch'
 import { xpRange } from '../lib/levelling.js'
-
 let Styles = (text, style = 1) => {
   var xStr = 'abcdefghijklmnopqrstuvwxyz1234567890'.split('');
   var yStr = Object.freeze({
@@ -21,81 +20,65 @@ let Styles = (text, style = 1) => {
   });
   return output.join('');
 };
-
 let tags = {
-  'main': '𝐈𝐍𝐅𝐎 𝐁𝐎𝐓',
-  'buscador': '𝐁𝐔𝐒𝐐𝐔𝐄𝐃𝐀𝐒',
-  'search': '𝐒𝐄𝐀𝐑𝐂𝐇',
-  'game': '𝐃𝐈𝐕𝐄𝐑𝐒𝐈𝐎𝐍',
-  'jadibot': '𝐒𝐔𝐁 𝐁𝐎𝐓𝐒',
-  'rpg': '𝐑𝐏𝐆',
-  'rg': '𝐑𝐄𝐆𝐈𝐒𝐓𝐑𝐎',
-  'xp': '𝐄𝐗𝐏',
-  'sticker': '𝐒𝐓𝐈𝐂𝐊𝐄𝐑𝐒',
-  'anime': '𝐀𝐍𝐈𝐌𝐄𝐒',
-  'database': '𝐃𝐀𝐓𝐀𝐁𝐀𝐒𝐄',
-  'fix': '𝐅𝐈𝐗𝐌𝐒𝐆𝐄𝐒𝐏𝐄𝐑𝐀',
-  'grupo': '𝐆𝐑𝐔𝐏𝐎𝐒',
-  'nable': '𝐎𝐍 / 𝐎𝐅𝐅', 
-  'dl': '𝐃𝐄𝐒𝐂𝐀𝐑𝐆𝐀𝐒',
-  'fun': '𝐇𝐄𝐑𝐑𝐀𝐌𝐈𝐄𝐍𝐓𝐀𝐒',
-  'info': '𝐈𝐍𝐅𝐎𝐑𝐌𝐀𝐂𝐈𝐎𝐍',
-  'nsfw': '𝐍𝐒𝐅𝐖', 
-  'owner': '𝐂𝐑𝐄𝐀𝐃𝐎𝐑',
-  'mods': '𝐒𝐓𝐀𝐅𝐅',
-  'audio': '𝐀𝐔𝐃𝐈𝐎𝐒', 
-  'ai': '𝐀𝐈 𝐁𝐎𝐓',
-  'convertir': '𝐂𝐎𝐍𝐕𝐄𝐑𝐓𝐈𝐃𝐎𝐑𝐄𝐒',
-  'audios': '𝐀𝐔𝐃𝐈𝐎𝐒',
+  'anime': '🧧 ANIME 🎐',
+  'main': '❗ INFO ❕',
+  'search': '🔎 SEARCH 🔍',
+  'game': '🕹️ GAME 🎮',
+  'serbot': '⚙️ SUB BOTS 🤖',
+  'rpg': '🌐 RPG 🥇',
+  'rg': '🎑 REGISTRO 🎟️',
+  'sticker': '💟 STICKER 🏷️',
+  'img': '🖼️ IMAGE 🎇',
+  'group': '👥 GROUPS 📢',
+//  'logo': 'MAKER',
+  'nable': '🎛️ ON / OFF 🔌', 
+  'premium': '💎 PREMIUM 👑',
+  'downloader': '📥 DOWNLOAD 📤',
+  'tools': '🔧 TOOLS 🛠️',
+  'fun': '🎉 FUN 🎊',
+  'nsfw': '🔞 NSFW 📛', 
+  'cmd': '🧮 DATABASE 🖥️',
+  'owner': '👤 OWNER 👁️', 
+  'audio': '📣 AUDIOS 🔊', 
+  'advanced': '🗝️ ADVANCED 📍',
 }
 
 const defaultMenu = {
   before: `
-*︵̩̥̩̥̩̥̩̥̩̥̩̥.ֹ̥︵̩̥̩̥̩̥̩⏜⌣𓆩♥️𓆪⌣⏜︵̩̥̩̥̩̥̩̥⌣ֹ̥*
- *╔═𓆗═ͭ═ͪ═ͤ═✧☠️✧═ͨ═ᷞ═ͣ═ᷠ𓆗═╗*
-> `+'_*`'+`⁖ฺ۟̇࣪·֗٬̤⃟🌹hola %name, %greeting 𖠵ฺ໋۟݊`+'`*_'+`
-*╚═𓆗════✧🧧✧════𓆗═╝*
-꒷︶꒷꒥꒷‧₊˚꒷︶꒷꒥꒷‧₊˚꒷︶꒷꒥꒷‧₊˚꒷︶꒷
-  ╵︳╵︳╵│︱╵︳│╵│︳╵╵︳
-       .•*•.•*•.•*•.•*•.•*•.•*•.•*•.
-       `+'_*`𖤍 𝐀 𝐍 𝐘 𝐄 𝐋 𝐈 𝐓 𖤍`*_ '+`
-        •*•.•*•.•*•.•*•.•*•.•*•.•*•.
-        
-.・。.・゜✭・🐼・✫・゜・。.
-𓍢ִ:𓂃⊹ *🄽🄾🄼🄱🅁🄴* :  ִֶָ🥀𓍢ִ໋ 
-⭒─ׅ─ׂ─ׅ─ׂ─ׂ ⋆ ✧ ⋆ ─ׅ─ׂ─ׅ─ׂ─ׂ⭒
-> %name
-𓍢ִ:𓂃⊹ *🄱🄾🅃* :  ִֶָ🥀𓍢ִ໋ 
-> Anyelita Bot
-⭒─ׅ─ׂ─ׅ─ׂ─ׂ ⋆ ✧ ⋆ ─ׅ─ׂ─ׅ─ׂ─ׂ⭒
-𓍢ִ:𓂃⊹ *🄼🄾🄳🄾* :  ִֶָ🥀𓍢ִ໋ 
-> Público
-⭒─ׅ─ׂ─ׅ─ׂ─ׂ ⋆ ✧ ⋆ ─ׅ─ׂ─ׅ─ׂ─ׂ⭒
-𓍢ִ:𓂃⊹ *🅁🅄🅃🄸🄽🄰* :  ִֶָ🥀𓍢ִ໋ 
-> %muptime
-⭒─ׅ─ׂ─ׅ─ׂ─ׂ ⋆ ✧ ⋆ ─ׅ─ׂ─ׅ─ׂ─ׂ⭒
-𓍢ִ:𓂃⊹ *🅄🅂🄴🅁🅂* :  ִֶָ🥀𓍢ִ໋ 
-> %totalreg
-⭒─ׅ─ׂ─ׅ─ׂ─ׂ ⋆ ✧ ⋆ ─ׅ─ׂ─ׅ─ׂ─ׂ⭒
-𓍢ִ:𓂃⊹ *🄲🄾🅁🄰🅉🄾🄽🄴🅂* :  ִֶָ🥀𓍢ִ໋ 
-> %corazones
-⭒─ׅ─ׂ─ׅ─ׂ─ׂ ⋆ ✧ ⋆ ─ׅ─ׂ─ׅ─ׂ─ׂ⭒
-𓍢ִ:𓂃⊹ *🄽🄸🅅🄴🄻* :  ִֶָ🥀𓍢ִ໋ 
-> %level 
-✿°•∘ɷ∘•°✿ ... ✿°•∘ɷ∘•°✿.
+> 「 ${textbot} あ⁩ 」\n
 
-✦•····················•✦•···················•✦
+ – *ᴜ s ᴇ ʀ*
+
+┌ ◦ *Nombre:* %name
+│ ◦ *Eris:* %limit
+│ ◦ *Nivel:* %level [ %xp4levelup Xp Para Subir De Nivel]
+│ ◦ *Xp:* %exp / %maxexp
+└ ◦ *TotalXp:* %totalexp
+ 
+  – *ɪ ɴ ғ ᴏ*
+ 
+┌ ◦ *Modo:* %mode
+│ ◦ *Prefijo:* [ *%_p* ]
+│ ◦ *Rutina:* %muptime 
+└ ◦ *Database:*  %totalreg
+
+▣╾───────💙───────╼▣
+ %readmore
+\t\t\t_*LISTA DE MENÚS*_
 `.trimStart(),
-  header: 'li.╔╦══••✠•❀🌹❀•✠••══╦╗.il\n> ○⵿ͦꦽ͚┈➤̽ `%category`\nli.╚╩══••✠•❀🌹❀•✠••══╩╝.il\n▄︻🧧┻┳═ 🌹●○•♦️°♦️•○● 🌹═┳┻🧧︻▄',
-  body: '> _*`🎀⃟᷼ᮬᩙ⃪➤ %cmd %isdiamond %isPremium`*_\n',
-  footer: 'li.┗━━━━━°♤•♧°🌹°♧•♤°━━━━━┛.il\n\n',
-  after: ``,
+  header: '┏───「 *%category* 」',
+  body: '> %cmd %islimit %isPremium\n',
+  footer: '┗──────────━',
+  after: `© ${textbot}`,
 }
-let ppp = 'https://qu.ax/ZlNo.jpg'
+
 let handler = async (m, { conn, usedPrefix: _p, __dirname }) => {
   try {
+     let tag = `@${m.sender.split("@")[0]}`
+    let mode = global.opts["self"] ? "Privado" : "Publico"
     let _package = JSON.parse(await promises.readFile(join(__dirname, '../package.json')).catch(_ => ({}))) || {}
-    let { exp, corazones, level, role } = global.db.data.users[m.sender]
+    let { exp, limit, level } = global.db.data.users[m.sender]
     let { min, xp, max } = xpRange(level, global.multiplier)
     let name = await conn.getName(m.sender)
     let d = new Date(new Date + 3600000)
@@ -135,7 +118,7 @@ let handler = async (m, { conn, usedPrefix: _p, __dirname }) => {
         help: Array.isArray(plugin.tags) ? plugin.help : [plugin.help],
         tags: Array.isArray(plugin.tags) ? plugin.tags : [plugin.tags],
         prefix: 'customPrefix' in plugin,
-        corazones: plugin.corazones,
+        limit: plugin.limit,
         premium: plugin.premium,
         enabled: !plugin.disabled,
       }
@@ -149,7 +132,7 @@ let handler = async (m, { conn, usedPrefix: _p, __dirname }) => {
     let header = conn.menu.header || defaultMenu.header
     let body = conn.menu.body || defaultMenu.body
     let footer = conn.menu.footer || defaultMenu.footer
-    let after = conn.menu.after || (conn.user.jid == conn.user.jid ? '' : `Powered by https://wa.me/${conn.user.jid.split`@`[0]}`) + defaultMenu.after
+    let after = conn.menu.after || (conn.user.jid == global.conn.user.jid ? '' : ``) + defaultMenu.after
     let _text = [
       before,
       ...Object.keys(tags).map(tag => {
@@ -157,8 +140,8 @@ let handler = async (m, { conn, usedPrefix: _p, __dirname }) => {
           ...help.filter(menu => menu.tags && menu.tags.includes(tag) && menu.help).map(menu => {
             return menu.help.map(help => {
               return body.replace(/%cmd/g, menu.prefix ? help : '%p' + help)
-                .replace(/%isdiamond/g, menu.diamond ? '◜🪙◞' : '')
-                .replace(/%isPremium/g, menu.premium ? '◜🎫◞' : '')
+                .replace(/%islimit/g, menu.limit ? '◜⭐◞' : '')
+                .replace(/%isPremium/g, menu.premium ? '◜🪪◞' : '')
                 .trim()
             }).join('\n')
           }),
@@ -168,57 +151,65 @@ let handler = async (m, { conn, usedPrefix: _p, __dirname }) => {
       after
     ].join('\n')
     let text = typeof conn.menu == 'string' ? conn.menu : typeof conn.menu == 'object' ? _text : ''
-let replace = {
-'%': '%',
-p: _p, uptime, muptime,
-me: conn.getName(conn.user.jid),
-taguser: '@' + m.sender.split("@s.whatsapp.net")[0],
-npmname: _package.name,
-npmdesc: _package.description,
-version: _package.version,
-exp: exp - min,
-maxexp: xp,
-botofc: (conn.user.jid == global.conn.user.jid ? '🚩 𝙴𝚂𝚃𝙴 𝙴𝚂 𝙴𝙻 𝙱𝙾𝚃 𝙾𝙵𝙲' : `🚩 𝚂𝚄𝙱-𝙱𝙾𝚃 𝙳𝙴: Wa.me/${global.conn.user.jid.split`@`[0]}`), 
-totalexp: exp,
-xp4levelup: max - exp,
-github: _package.homepage ? _package.homepage.url || _package.homepage : '[unknown github url]',
-greeting, level, corazones, name, weton, week, date, dateIslamic, time, totalreg, rtotalreg, role,
-readmore: readMore
-}
-text = text.replace(new RegExp(`%(${Object.keys(replace).sort((a, b) => b.length - a.length).join`|`})`, 'g'), (_, name) => '' + replace[name])
+   let replace = {
+ "%": "%",
+ p: _p,
+ uptime,
+ muptime,
+ me: conn.getName(conn.user.jid),
+ npmname: _package.name,
+ npmdesc: _package.description,
+ version: _package.version,
+ exp: exp - min,
+ maxexp: xp,
+ totalexp: exp,
+ xp4levelup: max - exp,
+ github: _package.homepage ? _package.homepage.url || _package.homepage : "[unknown github url]",
+ mode,
+ _p,
+ tag,
+ name,
+ level,
+ limit,
+ name,
+ totalreg,
+ readmore: readMore
+   }
+    text = text.replace(new RegExp(`%(${Object.keys(replace).sort((a, b) => b.length - a.length).join`|`})`, 'g'), (_, name) => '' + replace[name])
 
-const who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
-
-const pp = await conn.profilePictureUrl(who, 'image').catch(_ => 'https://qu.ax/ZlNo.jpg')
-
-  let category = "video"
-  const db = './media/database/db.json'
-  const db_ = JSON.parse(fs.readFileSync(db))
-  const random = Math.floor(Math.random() * db_.links[category].length)
-  const rlink = db_.links[category][random]
-  global.vid = rlink
-  const response = await fetch(vid)
-  const gif = await response.buffer()
- // const img = { url: "https://qu.ax/ZlNo.jpg"} 
-
-await m.react('🩷') 
-await conn.reply(m.chat, '*ꪹ͜𓂃͡𝗖𝗮𝗿𝗴𝗮𝗻𝗱𝗼 𝗘𝗹 𝗠𝗲𝗻𝘂 𝗗𝗲 𝗹𝗮 𝗕𝗼𝘁...𓏲੭*', fakegif3, { contextInfo:{ forwardingScore: 2022, isForwarded: true, externalAdReply: {title: packname, body: '🩷 ¡Anyelita la mejor Bot!', sourceUrl: "https://wa.me/0", thumbnail: icons }}})
-
-// await conn.reply(m.chat, '🍟 Enviando el menú.....', m, rcanal)
-
-await conn.sendFile(m.chat, "https://qu.ax/ZlNo.jpg", 'menu.jpg', Styles(text.trim()), fakegif3, null, fake)
+    let pp = 'https://telegra.ph/file/4c3e4b782c82511b3874d.mp4'
+    let pp2 = 'https://telegra.ph/file/d8c5e18ab0cfc10511f63.mp4'
+    let pp3 = 'https://telegra.ph/file/96e471a87971e2fb4955f.mp4'
+    let pp4 = 'https://telegra.ph/file/09b920486c3c291f5a9e6.mp4'
+    let pp5 = 'https://telegra.ph/file/4948429d0ab0212e9000f.mp4'
+    let pp6 = 'https://telegra.ph/file/cab0bf344ba83d79c1a47.mp4'
+    let pp7 = 'https://telegra.ph/file/6d89bd150ad55db50e332.mp4'
+    let pp8 = 'https://telegra.ph/file/e2f791011e8d183bd6b50.mp4'
+    let pp9 = 'https://telegra.ph/file/546a6a2101423efcce4bd.mp4'
+    let pp10 = 'https://telegra.ph/file/930b9fddde1034360fd86.mp4'
+    let pp11 = 'https://telegra.ph/file/81da492e08bfdb4fda695.mp4'
+    let pp12 = 'https://telegra.ph/file/ec8393df422d40f923e00.mp4'
+    let pp13 = 'https://telegra.ph/file/ba7c4a3eb7bf3d892b0c8.mp4'
+    let pp14 = 'https://i.ibb.co/WG5rxnc/file.jpg'
+    let pp15 = 'https://i.ibb.co/WG5rxnc/file.jpg'
+    let img = 'https://i.ibb.co/WG5rxnc/file.jpg'
+    await m.react('✨')
+   // await conn.sendMessage(m.chat, { video: { url: [pp, pp2, pp3, pp4, pp5, pp6, pp7, pp8, pp9, pp10, pp11, pp12, pp13, pp14, pp15].getRandom() }, gifPlayback: true, caption: text.trim(), mentions: [m.sender] }, { quoted: estilo })
+    await conn.sendFile(m.chat, img, 'thumbnail.jpg', text.trim(), m, null, rcanal)
+   //await conn.sendAi(m.chat, botname, textbot, text.trim(), img, img, canal, estilo)
 
   } catch (e) {
-    conn.reply(m.chat, '🔵 Lo sentimos, el menú tiene un error', m, rcanal, )
+    conn.reply(m.chat, '❎ Lo sentimos, el menú tiene un error.', m)
     throw e
   }
 }
-handler.help = ['menucompleto']
-handler.tags = ['main']
-handler.command = ['menucompleto', 'allmenú', 'allmenu'] 
-handler.register = true
 
+handler.help = ['allmenu']
+handler.tags = ['main']
+handler.command = ['allmenu', 'menucompleto', 'menúcompleto'] 
+handler.register = true 
 export default handler
+
 
 const more = String.fromCharCode(8206)
 const readMore = more.repeat(4001)
@@ -233,29 +224,29 @@ function clockString(ms) {
   var ase = new Date();
   var hour = ase.getHours();
 switch(hour){
-  case 0: hour = '𝐁𝐮𝐞𝐧𝐚𝐬 𝐧𝐨𝐜𝐡𝐞𝐬 🌙'; break;
-  case 1: hour = '𝐁𝐮𝐞𝐧𝐚𝐬 𝐧𝐨𝐜𝐡𝐞𝐬 💤'; break;
-  case 2: hour = '𝐁𝐮𝐞𝐧𝐚𝐬 𝐧𝐨𝐜𝐡𝐞𝐬 🦉'; break;
-  case 3: hour = '𝐁𝐮𝐞𝐧𝐚𝐬 𝐝𝐢𝐚𝐬 ✨'; break;
-  case 4: hour = '𝐁𝐮𝐞𝐧𝐚𝐬 𝐝𝐢𝐚𝐬 💫'; break;
-  case 5: hour = '𝐁𝐮𝐞𝐧𝐚𝐬 𝐝𝐢𝐚𝐬 🌅'; break;
-  case 6: hour = '𝐁𝐮𝐞𝐧𝐚𝐬 𝐝𝐢𝐚𝐬 🌄'; break;
-  case 7: hour = '𝐁𝐮𝐞𝐧𝐚𝐬 𝐝𝐢𝐚𝐬 🌅'; break;
-  case 8: hour = '𝐁𝐮𝐞𝐧𝐚𝐬 𝐝𝐢𝐚𝐬 💫'; break;
-  case 9: hour = '𝐁𝐮𝐞𝐧𝐚𝐬 𝐝𝐢𝐚𝐬 ✨'; break;
-  case 10: hour = '𝐁𝐮𝐞𝐧𝐚𝐬 𝐝𝐢𝐚𝐬 🌞'; break;
-  case 11: hour = '𝐁𝐮𝐞𝐧𝐚𝐬 𝐝𝐢𝐚𝐬 🌨'; break;
-  case 12: hour = '𝐁𝐮𝐞𝐧𝐚𝐬 𝐝𝐢𝐚𝐬 ❄'; break;
-  case 13: hour = '𝐁𝐮𝐞𝐧𝐚𝐬 𝐝𝐢𝐚𝐬 🌤'; break;
-  case 14: hour = '𝐁𝐮𝐞𝐧𝐚𝐬 𝐭𝐚𝐫𝐝𝐞𝐬 🌇'; break;
-  case 15: hour = '𝐁𝐮𝐞𝐧𝐚𝐬 𝐭𝐚𝐫𝐝𝐞𝐬 🥀'; break;
-  case 16: hour = '𝐁𝐮𝐞𝐧𝐚𝐬 𝐭𝐚𝐫𝐝𝐞𝐬 🌹'; break;
-  case 17: hour = '𝐁𝐮𝐞𝐧𝐚𝐬 𝐭𝐚𝐫𝐝𝐞𝐬 🌆'; break;
-  case 18: hour = '𝐁𝐮𝐞𝐧𝐚𝐬 𝐧𝐨𝐜𝐡𝐞𝐬 🌙'; break;
-  case 19: hour = '𝐁𝐮𝐞𝐧𝐚𝐬 𝐧𝐨𝐜𝐡𝐞𝐬 🌃'; break;
-  case 20: hour = '𝐁𝐮𝐞𝐧𝐚𝐬 𝐧𝐨𝐜𝐡𝐞𝐬 🌌'; break;
-  case 21: hour = '𝐁𝐮𝐞𝐧𝐚𝐬 𝐧𝐨𝐜𝐡𝐞𝐬 🌃'; break;
-  case 22: hour = '𝐁𝐮𝐞𝐧𝐚𝐬 𝐧𝐨𝐜𝐡𝐞𝐬 🌙'; break;
-  case 23: hour = '𝐁𝐮𝐞𝐧𝐚𝐬 𝐧𝐨𝐜𝐡𝐞𝐬 🌃'; break;
+  case 0: hour = 'una linda noche 🌙'; break;
+  case 1: hour = 'una linda noche 💤'; break;
+  case 2: hour = 'una linda noche 🦉'; break;
+  case 3: hour = 'una linda mañana ✨'; break;
+  case 4: hour = 'una linda mañana 💫'; break;
+  case 5: hour = 'una linda mañana 🌅'; break;
+  case 6: hour = 'una linda mañana 🌄'; break;
+  case 7: hour = 'una linda mañana 🌅'; break;
+  case 8: hour = 'una linda mañana 💫'; break;
+  case 9: hour = 'una linda mañana ✨'; break;
+  case 10: hour = 'un lindo dia 🌞'; break;
+  case 11: hour = 'un lindo dia 🌨'; break;
+  case 12: hour = 'un lindo dia ❄'; break;
+  case 13: hour = 'un lindo dia 🌤'; break;
+  case 14: hour = 'una linda tarde 🌇'; break;
+  case 15: hour = 'una linda tarde 🥀'; break;
+  case 16: hour = 'una linda tarde 🌹'; break;
+  case 17: hour = 'una linda tarde 🌆'; break;
+  case 18: hour = 'una linda noche 🌙'; break;
+  case 19: hour = 'una linda noche 🌃'; break;
+  case 20: hour = 'una linda noche 🌌'; break;
+  case 21: hour = 'una linda noche 🌃'; break;
+  case 22: hour = 'una linda noche 🌙'; break;
+  case 23: hour = 'una linda noche 🌃'; break;
 }
-  var greeting = hour;
+  var greeting = "espero que tengas " + hour;
