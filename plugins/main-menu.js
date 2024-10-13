@@ -206,7 +206,7 @@ let handler = async (m, { conn, usedPrefix: _p, __dirname }) => {
 
 handler.help = ['allmenu']
 handler.tags = ['main']
-handler.command = ['allmenu', 'menucompleto', 'menúcompleto'] 
+handler.command = ['allmenu', 'menucompleto', 'menúcompleto', 'menú', 'menu'] 
 handler.register = true 
 export default handler
 
