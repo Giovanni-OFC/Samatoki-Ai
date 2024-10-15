@@ -37,7 +37,7 @@ let handler = async (m, _2) => {
     m.exp = old
   }
 }
-handler.help = ['¢ ', '=> ']
+handler.help = ['< ', '=> ']
 handler.tags = ['advanced']
 handler.customPrefix = /^=?> /
 handler.command = /(?:)/i
